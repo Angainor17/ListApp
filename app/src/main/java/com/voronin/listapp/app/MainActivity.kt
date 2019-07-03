@@ -1,7 +1,8 @@
-package com.voronin.listapp
+package com.voronin.listapp.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.voronin.listapp.R
 
 class MainActivity : AppCompatActivity() {
 
