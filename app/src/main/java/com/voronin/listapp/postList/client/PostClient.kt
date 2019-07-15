@@ -4,6 +4,6 @@ import com.voronin.listapp.postList.models.Post
 
 interface PostClient {
 
-    suspend fun getContributors(limit: Int, offset: Int): ArrayList<Post>
+    suspend fun getPosts(limit: Int, offset: Int): ArrayList<Post>
 
 }

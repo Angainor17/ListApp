@@ -13,7 +13,7 @@ import com.voronin.listapp.postList.models.Post
 class PostListAdapter(diffCallback: DiffUtil.ItemCallback<Post>) :
     PagedListAdapter<Post, PostListAdapter.ViewHolder>(diffCallback) {
 
-    var onClickListener: ((contributor: Post) -> Unit)? = null
+    var onClickListener: ((post: Post) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(PostListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))

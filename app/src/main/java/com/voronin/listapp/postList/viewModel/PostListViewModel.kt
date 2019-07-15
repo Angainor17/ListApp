@@ -28,7 +28,7 @@ import kotlin.coroutines.CoroutineContext
 
 const val PAGE_SIZE = 20
 
-class ContributorListViewModel(app: Application) : AndroidViewModel(app) {
+class PostListViewModel(app: Application) : AndroidViewModel(app) {
 
     private val context: Context = app
 
@@ -60,7 +60,7 @@ class ContributorListViewModel(app: Application) : AndroidViewModel(app) {
             setLoading(true)
             CoroutineScope(coroutineContext).launch {
                 try {
-                    val list = client.getContributors(PAGE_SIZE, PAGE_SIZE * pageNumber)
+                    val list = client.getPosts(PAGE_SIZE, PAGE_SIZE * pageNumber)
                     callback.invoke(list)
                 } catch (e: Exception) {
                     callback.invoke(ArrayList())
@@ -95,7 +95,7 @@ class ContributorListViewModel(app: Application) : AndroidViewModel(app) {
             override fun areItemsTheSame(oldItem: Post, newItem: Post) = oldItem == newItem
             override fun areContentsTheSame(oldItem: Post, newItem: Post) = oldItem == newItem
         })
-        listAdapter?.onClickListener = { onContributorSelected(it) }
+        listAdapter?.onClickListener = { onPostSelected(it) }
         listAdapter?.submitList(pagedList)
     }
 
@@ -117,7 +117,7 @@ class ContributorListViewModel(app: Application) : AndroidViewModel(app) {
             .build()
     }
 
-    private fun onContributorSelected(it: Post) {
+    private fun onPostSelected(it: Post) {
         navViewModel.navigateScreen(
             R.id.action_to_detail,
             bundleOf(POST_TAG to it)

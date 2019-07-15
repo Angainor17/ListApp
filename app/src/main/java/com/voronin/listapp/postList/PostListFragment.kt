@@ -10,12 +10,12 @@ import androidx.lifecycle.observe
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.voronin.listapp.R
-import com.voronin.listapp.postList.viewModel.ContributorListViewModel
+import com.voronin.listapp.postList.viewModel.PostListViewModel
 import kotlinx.android.synthetic.main.post_list_fragment.*
 
 class PostListFragment : Fragment() {
 
-    private lateinit var viewModel: ContributorListViewModel
+    private lateinit var viewModel: PostListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,16 +31,16 @@ class PostListFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this).get(ContributorListViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(PostListViewModel::class.java)
         viewModel.loadingLiveData.observe(this) {
             swipeRefresh.isRefreshing = it
         }
     }
 
     private fun initViews() {
-        contributorList.itemAnimator = DefaultItemAnimator()
-        contributorList.layoutManager = LinearLayoutManager(context)
-        contributorList.adapter = viewModel.listAdapter
+        postsList.itemAnimator = DefaultItemAnimator()
+        postsList.layoutManager = LinearLayoutManager(context)
+        postsList.adapter = viewModel.listAdapter
 
         swipeRefresh.setOnRefreshListener {
             viewModel.onSwipeRefresh()

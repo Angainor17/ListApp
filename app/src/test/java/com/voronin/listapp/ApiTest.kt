@@ -17,8 +17,8 @@ class ApiTest : NetRequestTest() {
      * Check if request is correct
      */
     @Test
-    fun getContributorsTest() = runBlocking {
-        val list = client.getContributors(10, 0)
+    fun getPostsTest() = runBlocking {
+        val list = client.getPosts(10, 0)
         assert(list.isNotEmpty())
     }
 }
