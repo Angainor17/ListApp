@@ -11,53 +11,72 @@
                 type="com.voronin.listapp.postList.models.Post"/>
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:background="@android:color/white"
-            android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
 
-        <ImageView
-                android:id="@+id/avatarImageView"
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:background="@android:color/white"
+                android:layout_height="wrap_content">
 
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginStart="16dp"
-                android:scaleType="fitCenter"
-                android:layout_marginEnd="16dp"
+            <ImageView
+                    android:id="@+id/avatarImageView"
 
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:url="@{post.titleImage}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.6"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="16dp"
+                    android:scaleType="fitCenter"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
 
-                tools:samples="@tools:sample/avatars"/>
+                    app:url="@{post.titleImage}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title"
 
-        <TextView
-                android:id="@+id/title"
+                    tools:samples="@tools:sample/avatars"/>
 
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:singleLine="true"
-                android:gravity="center"
-                android:ellipsize="end"
-                android:fontFamily="@font/open_sans"
-                android:textColor="@android:color/black"
-                android:text="@{post.title}"
-                android:textSize="25dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+            <TextView
+                    android:id="@+id/title"
 
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/avatarImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/open_sans"
+                    android:textColor="@android:color/black"
+                    android:text="@{post.title}"
+                    android:textSize="22dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
 
-                tools:text="hartman"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    tools:text="Post name"/>
+
+            <TextView
+                    android:id="@+id/text"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="@{post.text}"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="8dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/avatarImageView"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    tools:text="211499 23123123 123 123 123 123 123 123 123  213 123 123 123 123 123 123 123 9"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </layout>

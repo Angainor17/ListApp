@@ -7,7 +7,7 @@ import retrofit2.http.Query
 interface PostApi {
 
     @GET("/wp-json/mob/posts")
-    fun getPosts(
+    suspend fun getPosts(
         @Query("limit") limit: Int,
         @Query("offset") offset: Int
     ): ArrayList<Post>

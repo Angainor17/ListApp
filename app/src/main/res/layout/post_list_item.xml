@@ -23,18 +23,18 @@
         <ImageView
                 android:id="@+id/avatarImageView"
 
-                android:layout_width="90dp"
+                android:layout_width="100dp"
                 android:layout_height="0dp"
                 android:minHeight="70dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="2dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginStart="4dp"
                 android:scaleType="fitStart"
-
+                app:url="@{post.titleImage}"
 
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
 
                 tools:samples="@tools:sample/avatars"/>
 
@@ -60,7 +60,7 @@
                 tools:text="ivoire"/>
 
         <TextView
-                android:id="@+id/subTitle"
+                android:id="@+id/text"
 
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -68,8 +68,8 @@
                 android:layout_marginEnd="8dp"
                 android:textColor="@android:color/darker_gray"
                 android:layout_marginTop="8dp"
-                android:singleLine="true"
                 android:textSize="16dp"
+                android:maxLines="3"
                 android:ellipsize="end"
                 android:fontFamily="@font/open_sans_semibold"
                 android:text="@{post.text}"
@@ -79,12 +79,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
 
-                tools:text="2114999"/>
+                tools:text="211499 23123123 123 123 123 123 123 123 123  213 123 123 123 123 123 123 123 9"/>
 
         <View
                 android:id="@+id/bottomDivider"
 
-                android:background="@android:color/darker_gray"
+                android:background="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="1px"
 
