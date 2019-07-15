@@ -5,7 +5,7 @@ import java.io.Serializable
 
 const val POST_TAG = "post"
 
-class Post(
+data class Post(
     val id: Long,
     val date: Long,
     val title: String,
