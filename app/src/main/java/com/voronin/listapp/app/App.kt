@@ -1,21 +1,27 @@
 package com.voronin.listapp.app
 
 import android.app.Application
-import com.github.salomonbrys.kodein.Kodein
-import com.github.salomonbrys.kodein.bind
-import com.github.salomonbrys.kodein.instance
-import com.github.salomonbrys.kodein.singleton
-import com.voronin.listapp.post.data.client.PostClient
-import com.voronin.listapp.post.data.client.PostClientImpl
+import com.voronin.listapp.postList.client.PostClient
+import com.voronin.listapp.postList.client.PostClientImpl
+import com.voronin.listapp.postList.client.API_BASE_URL
+import com.voronin.listapp.navActivity.viewModel.NavViewModel
+import com.voronin.listapp.utils.KodeinViewModelFactory
 import com.voronin.listapp.utils.createRetrofit
+import org.kodein.di.Kodein
+import org.kodein.di.generic.bind
+import org.kodein.di.generic.eagerSingleton
+import org.kodein.di.generic.instance
+import org.kodein.di.generic.singleton
 import retrofit2.Retrofit
-
-val POST_TAG = "post"
 
 class App : Application() {
 
-    val kodein = Kodein {
-        bind<Retrofit>(tag = POST_TAG) with singleton { createRetrofit(POST_BASE_URL) }
-        bind<PostClient>() with singleton { PostClientImpl(instance()) }
+    companion object {
+        val kodein = Kodein {
+            bind<Retrofit>() with singleton { createRetrofit(API_BASE_URL) }
+            bind<PostClient>() with singleton { PostClientImpl(instance()) }
+            bind<KodeinViewModelFactory>() with eagerSingleton  { KodeinViewModelFactory(kodein) }
+            bind<NavViewModel>() with singleton { NavViewModel() }
+        }
     }
 }

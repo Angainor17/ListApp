@@ -3,16 +3,36 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/navigation_graph"
-            app:startDestination="@id/listScreen">
+            app:startDestination="@id/postListScreen">
 
     <fragment
-            android:id="@+id/listScreen"
+            android:id="@+id/postListScreen"
 
-            android:name="com.voronin.listapp.post.view.PostScreen"
-            android:label="ListScreen"
+            android:name="com.voronin.listapp.postList.PostListFragment"
+            android:label="Posts"
 
-            tools:layout="@layout/list_screen">
+            tools:layout="@layout/post_list_fragment">
+
+        <action
+                android:id="@+id/action_to_detail"
+
+                app:destination="@id/postDetailScreen"
+                app:popUpTo="@+id/postListScreen"
+                app:enterAnim="@anim/slide_in_right"
+                app:launchSingleTop="false"
+                app:popExitAnim="@anim/slide_out_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"/>
+
     </fragment>
 
+    <fragment
+            android:id="@+id/postDetailScreen"
+
+            android:name="com.voronin.listapp.postDetail.PostDetailFragment"
+            android:label="Post"
+
+            tools:layout="@layout/post_detail_fragment">
+    </fragment>
 
 </navigation>
